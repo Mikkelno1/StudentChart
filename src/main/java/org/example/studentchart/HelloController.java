@@ -18,14 +18,14 @@ public class HelloController
     //Objects
     ObservableList<XYChart.Series<String, Number>> data = FXCollections.observableArrayList();
     XYChart.Series<String, Number> series = new XYChart.Series<>();
-    List<Integer> ages = new ArrayList<>();
+    ArrayList<Integer> ages = new ArrayList<>();
 
     private final UI ui;
 
     public HelloController(UI ui)
     {
         this.ui = ui;
-        ui.setDrawChart(e -> drawChart());
+        ui.setDrawChart(e -> drawRectangles());
         ui.setSaveAction(this::saveAge);
     }
 
@@ -52,10 +52,17 @@ public class HelloController
 
     /*
     Takes data from the buildchart method and passes it to the UI class
-     */
+
     private void drawChart() {
         ObservableList<XYChart.Series<String, Number>> data = buildChart();
         ui.updateChart(data);
+    }
+
+     */
+
+    public void drawRectangles()
+    {
+        ui.drawRectangles(ages);
     }
 
 
